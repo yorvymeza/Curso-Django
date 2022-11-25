@@ -1,0 +1,10 @@
+
+
+Primero creamos un ambiente virtual
+comando 
+-------------------------------------
+1. virtualenv env
+-------------------------------------
+
+
+
