@@ -27,10 +27,26 @@ gitignore python en nuestro navegador
 https://github.com/github/gitignore/blob/main/Python.gitignore
 Copiamos todo eso y lo pegamos en nuestro archivp
  .gitignore 
+ Environments = ENTORNOS 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 4. Ahora vamos a crear nuestro archivo 
   requirements.txt
+
+Esto es control de version y tener siempre 
+lo mismo resultado
+
+5. Para instalar django lo podemos instalar 
+de 2 forma.
+
+Vamos al nevegador y escribimos 
+django pip
+
+1* pip install Django
+
+2* django==4.1.3
+
+
 
 
 
