@@ -45,7 +45,7 @@ django pip
 1* pip install Django
 
 2* django==4.1.3
------------------------------------
+-------------------------------------------------------------------
 
 Instalacion de la primera apliacion en Django
   #Esta es la configuracion del proyecto 
@@ -55,34 +55,149 @@ Instalacion de la primera apliacion en Django
     core es una nomenclatura que le estamos
     dando a la primera aplicacion que se va ha crear
     Es para iniciar Django ]
------------------------------------
+-----------------------------------------------------------------------
 asgi.py // Uno significa asicrono
 wsgi.py // Significa no asicrono 
 
-------------------------------------
+Para correr django lo hacemos con el siguiente comando 
+1. python manage.py runserver // Nos va permitir correr el
+servidor de Django
 
 
+-------------------------------------------------------------------------
+
+Veremos que es setting.py 
+Contiene informacion de todo el proyecto
+
+*En INSTALLED_APPS
+[ ES DONDE SE VA AGREGAR EL PROYECTO QUE VAMOS A ESTAR TRABAJANDO]
+Debemos instalar core ya que con eso le estamos dando acceso 
+a todo los archivo que se encuentra adentro de este FOLDER
+
+* BASE_DIR = Path(__fil{e__).resolve().parent.parent 
+
+// RECORDEMOS QUE  || BASE_DIR || 
+HACE REFERENCIA A DONDE SE ENCUENTRA EL DIRECTORIO DE NUESTRO ARCHIVO
+
+* SECRET_KEY = "django-insecure-*%^hmyf=_$sc-cf!1$15&yz=c3f32r*yp318ce4z!_qw7^!#=r"
+ES MUY IMPORTANTE PROTEGERLO para que no tengan acceso a nuestro sitio 
+-------------------------------------------------------------------------------
+* DEBUG = True // Es para las aplicaciones 
+que despleguemos lo debemos poner False
+eso es muy importante 
+
+* ALLOWED_HOSTS = [] Es la url http://127.0.0.1:8000/
+
+Significa que podemos trabajar con con cualquier 
+host la estrellita significa que podemos aceptar 
+todo ['*']
+ALLOWED_HOSTS = ['*']
+-----------------------------------------------------
+
+* WSGI_APPLICATION = 'core.wsgi.application' 
+
+WSGI ES EL RAPPER QUE LAS IMAGENES SE PUEDAN ENTERDER 
+EN EL SERVIDOR
+SE USA ALFINAL PARA QUE NUESTRA APLICACION FUNCIONE...
+
+-------------------------------------------------------
 
 
+* AUTH_PASSWORD_VALIDATORS = []
+Es para validar las contraseñas
+--------------------------------------------------------
+
+* LANGUAGE_CODE = "en-us"
+Esto es para que Django funcione para diferentes lenguajes 
+-----------------------------------------------------------
+
+* STATIC_URL = 'static/' // ES PARA TRABAJAR CON LAS IMAGENES
+  DEBEMOS CREAR UNA CARPETA SI QUEREMOS TRABAJAR CON LAS IMAGENES
+  STATIC_URK = '/static/'
+
+----------------------------------------------------------
+Despúes migramos las migraciones 
+con el comando 
+python manage.py migrate
+---------------------------------------------------------
+
+Despues creamos un usuarios para la parte de administracion
+con el comando 
+ python manage.py createsuperuser 
+// DE ESTA MANERA CREAMOS UN SUPER ADMINISTRADOR 
+
+Usuario = admin
+Email = mail@admin.com
+Clasve = admin123
+
+-------------------------------------------------------------
+Ahora vamos a crear una vista
+nos vamos ubicar en la carpeta core
+y creamos una vista views.py
+------------------------------------------------------------
+views.py
+
+from django.views.generic import View
+
+get //Es para poder llamar get()
+*Los fundamentos get()
+El getRequest es lo que pide la informacion para poder ver 
+El postRequest Es lo que tu envias, es decir lo que tu envia 
+al servidor 
 
 
+class HomeView(View):
+	def get(self, request, *args, **kwargs )
+
+//200 Signfica ok
+---------------------------------
+
+*args, **kwargs 
+// HACE REFERENCIA A CUALQUIER VARIABLE O QUE EL paramentros QUE ESTAMOS UTILIZANDO LO LLAME
+// O cualquier parametro estemos llamando
 
 
+------------------------------------------------------
 
+* En el archivo urls.py que se encuentra en core
 
+from django.contrib import admin
+from django.urls import path, include
 
+from .views import HomeView
 
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path('', HomeView.as_view(), name='home')
+]
 
+-------------------------------------------------
 
+Ahora como podemos proteger nuesta informacion sencible 
+que se encuentra en nuestro archivo setting.py
 
+* Vamos a crear un archivo en core llamado 
+ .env donde vamos a guardar todas las variables 
+sencibles que se encuentra en el archivo settings.py
+antes de hacer eso debemos instalar un modulo 
+llamado 
+djangoenviron pip 
+django-environ 0.9.0
 
+Despues debemos ir settings.py 
+Importamos import environ
+Despues 
 
+env = environ.Env() # Es para crear variables
+environ.Env.read_env() # Es para leer las variables
 
+1. SECRET_KEY = os.environ.get('SECRET_KEY')
 
+2. DEBUG= os.environ.get('DEBUG')
 
-
-
-
+De esta mara protegemos las varibles de anvientes
+es muy importante para la seguridad LA INFORMACION
+DE LA PAGINA
 
 
 
