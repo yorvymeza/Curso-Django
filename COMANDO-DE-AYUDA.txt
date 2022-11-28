@@ -82,7 +82,8 @@ HACE REFERENCIA A DONDE SE ENCUENTRA EL DIRECTORIO DE NUESTRO ARCHIVO
 * SECRET_KEY = "django-insecure-*%^hmyf=_$sc-cf!1$15&yz=c3f32r*yp318ce4z!_qw7^!#=r"
 ES MUY IMPORTANTE PROTEGERLO para que no tengan acceso a nuestro sitio 
 -------------------------------------------------------------------------------
-* DEBUG = True // Es para las aplicaciones 
+* DEBUG = True // Es para tener informacion del desarrollo 
+que de la  aplicaciones 
 que despleguemos lo debemos poner False
 eso es muy importante 
 
