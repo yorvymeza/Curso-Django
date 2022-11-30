@@ -5,6 +5,10 @@ from django.shortcuts import render
 
 class HomeView(View):
 	def get(self, request, *args, **kwargs):
+
+		# *args, **kwargs 
+		# HACE REFERENCIA A CUALQUIER 
+		# VARIABLE O QUE EL paramentros QUE ESTAMOS UTILIZANDO LO LLAME
 	
 		context = {
 
