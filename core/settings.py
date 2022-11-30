@@ -17,6 +17,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # DEBUG = True
 DEBUG= os.environ.get('DEBUG')
 ALLOWED_HOSTS = ['*']
+# Significa que podemos trabajar con con cualquier 
+# host la estrellita significa que podemos aceptar 
+# ALLOWED_HOSTS = ['*']  todo ['*']
 
 
 # Application definition

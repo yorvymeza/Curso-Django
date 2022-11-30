@@ -199,6 +199,111 @@ environ.Env.read_env() # Es para leer las variables
 De esta mara protegemos las varibles de anvientes
 es muy importante para la seguridad LA INFORMACION
 DE LA PAGINA
+---------------------------------------------------------------------
+
+
+Ahora vamos a crear un modelos
+vamos a crear una class
+
+class Project(models.Model):
+       name = models.CharField
+
+
+
+
+class Task(models.Model):
+      title = models.CharFields(max_length=200)
+      description = models.TextField()
+      project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+         # Es para relacionar la tabla
+	 # on_delete=models.CASCADE
+	 # Es para cuando se elimine un datos 
+	 # Se eliminen todos lo que esten con el
+
+
+// También puedo guardar algunos datos y es utilizando
+// El comando python manage.py  shell
+
+from myapp.models import Project, Task
+
+p = Project(name="aplicacion movil")
+p
+p.save()
+Y si yo quiero traerme todo los objetos 
+lo puedo hacer con el siguiente comando
+Project.objects.all() # Me trae una consulta de la base de datos
+Si nosotros queremos traer un solo id 
+Project.objects.get(id=1)
+
+
+
+--------------------------------------------------------------
+
+Este codigo es donde esta mi urls.py en mi carpeta 
+core...................
+
+from django.contrib import admin
+from django.urls import path, include
+
+# from myapp.views import saludar
+# from myapp import views
+
+# Debemos añadir include 
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    # path('',views.saludar),
+    # path('about/',views.about)
+ 
+    # De esta forma se esta incluyendo las rutas
+    path('', include('myapp.urls'))
+]
+
+------------------------------------------------------------------
+Este archivo se tiene que crear y lo vamos llamar 
+urls.py
+
+from django.urls import path
+
+
+# Ya no tendria que darle el nombre de la carpeta
+# myapp
+
+from .  import  views
+# from myapp.views import 
+# El punto . es muy importante 
+# para indicar que estamos en la rais de la 
+# carpeta
+
+# Recodemos que esto es una lista urlpatterns[]
+urlpatterns = [
+
+  path('',views.saludar),
+  path('about/',views.about),
+  path('hola/', views.hola),
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
