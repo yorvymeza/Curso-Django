@@ -56,7 +56,7 @@ Instalacion de la primera apliacion en Django
     dando a la primera aplicacion que se va ha crear
     Es para iniciar Django ]
 
-python manage.py startapp blog 
+9. python manage.py startapp blog 
 // blog ES EL NOMBRE QUE LLEVA EL NOMBRE DEL PROYECTO...
   También se crea el modelo ya incluido de una vez...
 -----------------------------------------------------------------------
