@@ -55,6 +55,10 @@ Instalacion de la primera apliacion en Django
     core es una nomenclatura que le estamos
     dando a la primera aplicacion que se va ha crear
     Es para iniciar Django ]
+
+python manage.py startapp blog 
+// blog ES EL NOMBRE QUE LLEVA EL NOMBRE DEL PROYECTO...
+  También se crea el modelo ya incluido de una vez...
 -----------------------------------------------------------------------
 asgi.py // Uno significa asicrono
 wsgi.py // Significa no asicrono 
@@ -62,6 +66,8 @@ wsgi.py // Significa no asicrono
 Para correr django lo hacemos con el siguiente comando 
 1. python manage.py runserver // Nos va permitir correr el
 servidor de Django
+
+
 
 
 -------------------------------------------------------------------------
